@@ -181,11 +181,11 @@ with open('input.txt') as file:
         # print(temp_map_grid)
         # Caught in a loop:
         # if coords + direction exists in set, it's caught in a loop
-        # vector_set = set()
-        vector_set = []
+        vector_set = set()
+        # vector_set = []
         while not off_the_map(temp_map_grid, current_coords) and not (current_coords, direction) in vector_set:
-            # vector_set.add((current_coords, direction))
-            vector_set.append((current_coords, direction))
+            vector_set.add((current_coords, direction))
+            # vector_set.append((current_coords, direction))
             if can_move_forward(temp_map_grid, current_coords, direction):
                 current_coords = move_forward(current_coords,direction)
             else:
